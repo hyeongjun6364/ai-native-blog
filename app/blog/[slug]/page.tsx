@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
+import { AuthorProfile } from 'app/components/AuthorProfile'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 
@@ -95,6 +96,13 @@ export default async function Blog({ params }) {
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
+      <AuthorProfile
+        author={{
+          name: 'John Doe',
+          bio: 'A passionate writer and developer.',
+          avatarUrl: '/images/avatar.png',
+        }}
+      />
     </section>
   )
 }
